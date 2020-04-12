@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+  
+
+    <servlet>
+        <servlet-name>First Page</servlet-name>
+        <servlet-class>Controller.firstPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>First Page</servlet-name>
+        <url-pattern>/firstPage</url-pattern>   
+    </servlet-mapping>
+    
+    <!--Home Page-->
+    <servlet>
+        <servlet-name>Home Page</servlet-name>
+        <servlet-class>Controller.homeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Home Page</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    
+    <!--Home Page-->
+    <servlet>
+        <servlet-name>Table Page</servlet-name>
+        <servlet-class>Controller.tableServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Table Page</servlet-name>
+        <url-pattern>/table</url-pattern>
+    </servlet-mapping>
+    
+    <!--Caculation Page-->
+    <servlet>
+        <servlet-name>Caculation Page</servlet-name>
+        <servlet-class>Controller.caculationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Caculation Page</servlet-name>
+        <url-pattern>/caculation</url-pattern>
+    </servlet-mapping>
+    
+    <!--Success Servlet-->
+    <servlet>
+        <servlet-name>Success Controller</servlet-name>
+        <servlet-class>Controller.successServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Success Controller</servlet-name>
+        <url-pattern>/success</url-pattern>
+    </servlet-mapping>
+    
+    <!--User Servlet-->
+    <servlet>
+        <servlet-name>User Controller</servlet-name>
+        <servlet-class>Controller.userServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>User Controller</servlet-name>
+        <url-pattern>/userServlet</url-pattern>
+    </servlet-mapping>
+    
+    <!--Info Servlet-->
+    <servlet>
+        <servlet-name>Info Controller</servlet-name>
+        <servlet-class>Controller.infoServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>Info Controller</servlet-name>
+        <url-pattern>/infoServlet</url-pattern>
+    </servlet-mapping>
+        <servlet>
+        <servlet-name>Table Controller</servlet-name>
+        <servlet-class>Controller.table2Servlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>Table Controller</servlet-name>
+        <url-pattern>/table2Servlet</url-pattern>
+    </servlet-mapping>
+       <servlet>
+        <servlet-name>Table2 Controller</servlet-name>
+        <servlet-class>Controller.table3Servlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>Table2 Controller</servlet-name>
+        <url-pattern>/table3Servlet</url-pattern>
+    </servlet-mapping>
+</web-app>
