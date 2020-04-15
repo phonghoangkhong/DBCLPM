@@ -1,7 +1,8 @@
 <%-- 
     Document   : home
-    Created on : Feb 28, 2020, 9:23:37 PM
-    Author     : SA Nice
+    Created on : Feb 20, 2020, 9:39:11 PM
+    Author     : Le Trong Nghia
+    Content: Giao diện khai báo thông tin
 --%>
 
 <%@page import="Models.Info"%>

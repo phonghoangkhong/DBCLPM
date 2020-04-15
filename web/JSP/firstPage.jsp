@@ -1,8 +1,10 @@
 <%-- 
-    Document   : home
-    Created on : Feb 28, 2020, 2:12:28 PM
-    Author     : SA Nice
+    Document   : firstPage
+    Created on : Feb 20, 2020, 9:39:11 PM
+    Author     : Le Trong Nghia
+    Content: Giao diện đăng nhập, đăng ký
 --%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

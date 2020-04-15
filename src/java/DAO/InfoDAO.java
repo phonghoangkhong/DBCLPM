@@ -15,12 +15,19 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author SA Nice
+ * @author Le Trong Nghia
+ * Date 20/02/2020
  */
 public class InfoDAO {
+    /**
+     * 
+     * @param info
+     * @return boolean
+     * 
+     */
     public boolean add(Info info){
         Connection con = JDBCConnection.getConnection();
-        String query = "INSERT INTO [Project_DBCLPM].[dbo].[Info] (username, ten, soDT, diaChi, soCMND, ngaySinh, danToc, gioiTinh, maTinh, mucLuong, hinhThuc, trangThai)" + 
+        String query = "INSERT INTO [p2].[dbo].[Info] (username, ten, soDT, diaChi, soCMND, ngaySinh, danToc, gioiTinh, maTinh, mucLuong, hinhThuc, trangThai)" + 
                 " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement ps;
         try{
@@ -37,19 +44,24 @@ public class InfoDAO {
             ps.setInt(10, info.getMucLuong());
             ps.setBoolean(11, info.getHinhThuc());
             ps.setBoolean(12, info.getTrangThai());
-            ps.executeUpdate();
+           int a2= ps.executeUpdate();
             con.close();
-            return true;
+            return a2==1;
         }
         catch(SQLException ex){
                 Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
-    
+  /**
+   * 
+   * @param username
+   * @return info
+   * get info by username
+   */
     public Info get(String username){
         Connection con = JDBCConnection.getConnection();
-        String query = "SELECT * FROM [Project_DBCLPM].[dbo].[Info] WHERE username='" + username + "'"; 
+        String query = "SELECT * FROM [p2].[dbo].[Info] WHERE username='" + username + "'"; 
         PreparedStatement ps;
         try{
             ps = (PreparedStatement) con.prepareStatement(query);
@@ -78,10 +90,18 @@ public class InfoDAO {
         }
         return null;
     }
-    
+    /**
+     * 
+     * @param info
+     * @return boolean
+     * update info
+     * Edit by: Khong Hoang Phong
+     * Edit:fix bug khong update duoc bang cach set username
+     * Date: 14/03/2020
+     */
     public boolean update(Info info){
         Connection con = JDBCConnection.getConnection();
-        String query = "UPDATE [Project_DBCLPM].[dbo].[Info] SET ten = ?, soDT = ?, diaChi = ?, soCMND = ?, ngaySinh = ?, danToc = ?, gioiTinh = ?"
+        String query = "UPDATE [p2].[dbo].[Info] SET ten = ?, soDT = ?, diaChi = ?, soCMND = ?, ngaySinh = ?, danToc = ?, gioiTinh = ?"
                 + ",maTinh = ?, mucLuong = ?, hinhThuc = ?, trangThai = ? WHERE username = ?";
         PreparedStatement ps;
         try{
@@ -108,10 +128,14 @@ public class InfoDAO {
         }
         return false;
     }
-    
+   /**
+    * 
+    * @param username 
+    * delete user
+    */
     public void delete(String username){
         Connection con = JDBCConnection.getConnection();
-        String query = "DELETE FROM [Project_DBCLPM].[dbo].[Info] WHERE username = ?";
+        String query = "DELETE FROM [p2].[dbo].[Info] WHERE username = ?";
         PreparedStatement ps;
         try{
             ps = (PreparedStatement) con.prepareStatement(query);

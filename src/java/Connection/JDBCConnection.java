@@ -12,12 +12,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
  *
- * @author SA Nice
+ * @author Le Trong Nghia
+ * Date 20/02/2020
  */
 public class JDBCConnection {
-    
+    /**
+     * 
+     * @return  Connetion
+     * Content: connect database
+     */
     public static Connection getConnection(){
-        final String url = "jdbc:sqlserver://localhost:1433; databaseName=Project_DBCLPM" ;
+        final String url = "jdbc:sqlserver://localhost:1433; databaseName=p2" ;
         final String username = "sa";
         final String password = "1";
         
@@ -32,13 +37,5 @@ public class JDBCConnection {
         return null;
     }
     
-    public static void main(String[] args) {
-        Connection con = getConnection();
-        if(con != null){
-            System.out.println("Connection Success");
-        }
-        else{
-            System.out.println("Connection False");
-        }
-    }
+
 }

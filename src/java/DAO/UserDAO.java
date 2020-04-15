@@ -15,16 +15,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 /**
  *
- * @author SA Nice
+ * @author Le Trong Nghia
+ * Date 20/02/2020
  */
 public class UserDAO {
+    /**
+     * 
+     * @param user
+     * @return boolean
+     * check dang ky 
+     */
     public boolean register(User user){
         if(checkUsername(user.getUsername())){
             Connection con = JDBCConnection.getConnection();
-            String query = "INSERT INTO [Project_DBCLPM].[dbo].[User](username, password, trangThai) VALUES(?, ?, ?)";
+            String query = "INSERT INTO [p2].[dbo].[User](username, password, trangThai) VALUES(?, ?, ?)";
             PreparedStatement ps;
             try{
                 ps = (PreparedStatement) con.prepareStatement(query);
@@ -42,10 +48,15 @@ public class UserDAO {
         }
         return false;
     }
-    
+    /**
+     * 
+     * @param username
+     *  @return boolean
+     * check Username
+     */
     public boolean checkUsername(String username){
         Connection con = JDBCConnection.getConnection();
-        String query = "SELECT * FROM [Project_DBCLPM].[dbo].[User] WHERE username = '" + username + "'";
+        String query = "SELECT * FROM [p2].[dbo].[User] WHERE username = '" + username + "'";
         PreparedStatement ps;
         try{
             ps = (PreparedStatement) con.prepareStatement(query);
@@ -62,6 +73,13 @@ public class UserDAO {
         }
         return false;
     }
+    /**
+     * 
+     * @param username
+     * @param password
+     * @return boolean
+     * check thong tin dang nhap
+     */
     
     public  User login(String username, String password){
         Connection con = JDBCConnection.getConnection();
@@ -72,7 +90,7 @@ public class UserDAO {
                 Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        String query = "SELECT * FROM [Project_DBCLPM].[dbo].[User] WHERE username = '" + username + "' AND password = '" + password + "'";
+        String query = "SELECT * FROM [p2].[dbo].[User] WHERE username = '" + username + "' AND password = '" + password + "'";
         PreparedStatement ps;
         try{
             ps = (PreparedStatement) con.prepareStatement(query);
@@ -91,10 +109,15 @@ public class UserDAO {
         }
         return null;
     }
-    
+    /**
+     * 
+     * @param user
+     * @return  boolean
+     * 
+     */
     public boolean edit(User user){
         Connection con = JDBCConnection.getConnection();
-        String query = "UPDATE [Project_DBCLPM].[dbo].[User] SET password = ?, trangThai = ? WHERE username = ?";
+        String query = "UPDATE [p2].[dbo].[User] SET password = ?, trangThai = ? WHERE username = ?";
         PreparedStatement ps;
         try{
             ps = (PreparedStatement) con.prepareStatement(query);

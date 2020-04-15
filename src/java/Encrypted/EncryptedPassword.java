@@ -12,7 +12,9 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author minhm
+ * @author Le Trong Nghia
+ * Date 20/02/2020
+ * Ma hoa password
  */
 public class EncryptedPassword {
     public static String sha1(String input) throws NoSuchAlgorithmException {

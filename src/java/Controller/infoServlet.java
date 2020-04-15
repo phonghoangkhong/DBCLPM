@@ -17,11 +17,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 /**
  *
- * @author SA Nice
+ * @author Le Trong Nghia
+ * Date 20/02/2020
+ * Xu ly thong tin khai bao
+ * Edit by: Khong Hoang Phong
+ * Date: 14/03/2020
+ * Sua su kien nop voi ho gia dinh
  */
+
 public class infoServlet extends HttpServlet{
     UserDAO userDAO = new UserDAO();
     InfoDAO infoDAO = new InfoDAO();
@@ -97,7 +102,8 @@ public class infoServlet extends HttpServlet{
                 Info info = new Info(username, ten, soDT, diaChi, soCMND, ngaySinh, danToc, gioiTinh, maTinh,mucLuong, hinhThuc, false);
                 boolean check = infoDAO.add(info);
                 boolean check2 = false;
-                boolean check3= userFamily.add(info);
+              
+                
                 user.setTrangThai(true);
                 if(check == true){
                     check2 = userDAO.edit(user);
@@ -105,12 +111,13 @@ public class infoServlet extends HttpServlet{
                         infoDAO.delete(username);
                     }
                 }
-                if(check == true && check2 == true&&check3==true){
+                if(check == true && check2 == true){
                     if(hinhThuc==true)
                     {
+                        
                         session.setAttribute("info", info);
                          resp.sendRedirect("table");
-                          
+                         }
                     }else{
                     session.setAttribute("info", info);
                     resp.sendRedirect("caculation");
@@ -121,7 +128,7 @@ public class infoServlet extends HttpServlet{
                     resp.sendRedirect("home");
                 }
             }
-        }
+        
         else if(typeSubmit.equals("update")){
             session.setAttribute("error", null);
             checkValidate(req, resp);

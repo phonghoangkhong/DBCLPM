@@ -7,7 +7,8 @@ package DAO;
 
 /**
  *
- * @author User
+ * @author Khong Hoang Phong
+ * Date 14/03/2020
  */
 import Connection.JDBCConnection;
 import Models.Info;
@@ -19,13 +20,21 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 public class UserFamilyDAO {
+    /**
+     * 
+     * @param info
+     * @return boolean
+     * add Info to database
+     */
      public boolean add(Info info){
         Connection con = JDBCConnection.getConnection();
-        String query = "INSERT INTO [Project_DBCLPM].[dbo].[UserFamily] (mainMember, name,  soCMND, ngaySinh, danToc, gioiTinh)" + 
+        String query = "INSERT INTO [Project_DBCLPM].[dbo].[UserFamily] (mainMember, ten,  soCMND, ngaySinh, danToc, gioiTinh)" + 
                 " VALUES(?, ?, ?, ?, ?, ?)";
         PreparedStatement ps;
         try{
             ps = (PreparedStatement) con.prepareStatement(query);
+            System.out.println(info.getUsername());
+            System.out.println(info.getUsername());
             ps.setString(1, info.getUsername());
             ps.setString(2, info.getTen());
             ps.setString(3, info.getSoCMND());
@@ -42,6 +51,12 @@ public class UserFamilyDAO {
         }
         return false;
     }
+     /**
+      * 
+      * @param username
+      * @return  ArrayList<Info>
+      * get list danh sach gia dinh bang user chinh
+      */
     
     public ArrayList<Info> get(String username){
         Connection con = JDBCConnection.getConnection();
@@ -54,7 +69,7 @@ public class UserFamilyDAO {
             while(rs.next()){
                 Info info = new Info();
                 info.setUsername(username);
-                info.setTen(rs.getString("name"));
+                info.setTen(rs.getString("ten"));
                
                
                 info.setSoCMND(rs.getString("soCMND"));
@@ -71,10 +86,15 @@ public class UserFamilyDAO {
         }
         return null;
     }
-    
+    /**
+     * 
+     * @param info
+     * @return boolean
+     * update thong tin user chinh trong gia dinh
+     */
     public boolean update(Info info){
         Connection con = JDBCConnection.getConnection();
-        String query = "UPDATE [Project_DBCLPM].[dbo].[UserFamily] SET name = ?, soCMND = ?, ngaySinh = ?, danToc = ?, gioiTinh = ?"
+        String query = "UPDATE [Project_DBCLPM].[dbo].[UserFamily] SET ten = ?, soCMND = ?, ngaySinh = ?, danToc = ?, gioiTinh = ?"
                 + " WHERE mainMember = ?";
         PreparedStatement ps;
         try{

@@ -21,7 +21,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author SA Nice
+ * @author Le Trong Nghia
+ * Date 20/02/2020
+ * Dang nhap, dang ky
  */
 public class userServlet extends HttpServlet{
     UserDAO userDAO = new UserDAO();

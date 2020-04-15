@@ -18,7 +18,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author User
+ * @author Khong Hoang Phong
+ * Date 14/03/2020
+ * Submit thong tin thanh vien --> Tinh bao hiem
  */
 public class table3Servlet extends HttpServlet {
     

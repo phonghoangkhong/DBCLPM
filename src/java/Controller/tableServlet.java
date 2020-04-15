@@ -20,7 +20,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author SA Nice
+ * @author Khong Hoang Phong
+ * Date 14/03/2020
+ * su kien khi nop voi ho gia dinh
  */
 public class tableServlet extends HttpServlet{
     InfoDAO info=new InfoDAO(); 
@@ -44,7 +46,8 @@ public class tableServlet extends HttpServlet{
                     
             if(user.getTrangThai()== true){           
                  if(list.size()==0){
-                Info info2=info.get(user.getUsername());
+                 Info info2=info.get(user.getUsername());
+                     System.out.println(info2.getTrangThai());
                  boolean b=userFamilyDAO.add(info2);
                      System.out.println(b);
                           

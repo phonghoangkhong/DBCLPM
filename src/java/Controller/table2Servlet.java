@@ -17,10 +17,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 /**
  *
- * @author User
+ * @author Khong Hoang Phong
+ * Date 14/03/2020
+ * Them Thanh vien gia dinh vao bang
  */
 public class table2Servlet  extends HttpServlet{
      InfoDAO info=new InfoDAO(); 
