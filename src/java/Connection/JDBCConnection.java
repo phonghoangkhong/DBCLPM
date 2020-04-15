@@ -22,7 +22,7 @@ public class JDBCConnection {
      * Content: connect database
      */
     public static Connection getConnection(){
-        final String url = "jdbc:sqlserver://localhost:1433; databaseName=p2" ;
+        final String url = "jdbc:sqlserver://localhost:1433; databaseName=Project_DBCLPM" ;
         final String username = "sa";
         final String password = "1";
         
