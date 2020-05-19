@@ -32,6 +32,7 @@ public class infoServlet extends HttpServlet{
     InfoDAO infoDAO = new InfoDAO();
     UserFamilyDAO userFamily=new UserFamilyDAO();
     void checkValidate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        System.out.println("check");
         HttpSession session = req.getSession();
         String ten = Commons.fixName(req.getParameter("ten"));
         String soDT = req.getParameter("soDT").trim();
@@ -74,14 +75,19 @@ public class infoServlet extends HttpServlet{
             resp.sendRedirect("home"); 
         }
     }
+    void fail(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
+       HttpSession session = req.getSession();
+                   session.setAttribute("errot", "fail lam");
+                   resp.sendRedirect("home");
+                
+    }
     
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String typeSubmit = req.getParameter("submit");
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
-        resp.setContentType("text/html;charset=UTF-8");
-        req.setCharacterEncoding("UTF-8");
+       
         String username = user.getUsername();
         System.out.println(req.getParameter("ten"));
         String ten = Commons.fixName(req.getParameter("ten"));
@@ -94,39 +100,36 @@ public class infoServlet extends HttpServlet{
         String maTinh = req.getParameter("maTinh").trim();
         int mucLuong = Integer.parseInt(req.getParameter("mucLuong"));
         boolean hinhThuc = (req.getParameter("hinhThuc").equals("0"));
-                    
+                  
         if(typeSubmit.equals("add")){
+           
             session.setAttribute("error", null);
             checkValidate(req, resp);
             if(session.getAttribute("error") == null){
                 Info info = new Info(username, ten, soDT, diaChi, soCMND, ngaySinh, danToc, gioiTinh, maTinh,mucLuong, hinhThuc, false);
                 boolean check = infoDAO.add(info);
-                boolean check2 = false;
+              
               
                 
                 user.setTrangThai(true);
-                if(check == true){
-                    check2 = userDAO.edit(user);
-                    if(check2 == false){
-                        infoDAO.delete(username);
-                    }
-                }
-                if(check == true && check2 == true){
+              
+                if(check == true ){
                     if(hinhThuc==true)
                     {
                         
                         session.setAttribute("info", info);
                          resp.sendRedirect("table");
                          }
-                    }else{
+                    else{
                     session.setAttribute("info", info);
                     resp.sendRedirect("caculation");
                 }
                 }
                 else{
-                    session.setAttribute("error", "Cập nhật thông tin thất bại");
-                    resp.sendRedirect("home");
+                   fail(req, resp);
                 }
+                }
+
             }
         
         else if(typeSubmit.equals("update")){
