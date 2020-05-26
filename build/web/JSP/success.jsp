@@ -1,8 +1,7 @@
 <%-- 
     Document   : success
-    Created on : Feb 20, 2020, 9:39:11 PM
-    Author     : Le Trong Nghia
-    Content: Giao diện sau khi nộp thành công
+    Created on : Mar 22, 2020, 11:48:09 PM
+    Author     : SA Nice
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

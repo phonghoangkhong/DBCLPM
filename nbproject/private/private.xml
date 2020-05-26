@@ -3,38 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Project_BDCLPM/web/JSP/firstPage.jsp</file>
-            <file>file:/C:/Project_BDCLPM/src/java/DAO/UserFamilyDAO.java</file>
-            <file>file:/C:/Project_BDCLPM/web/JSP/table.jsp</file>
-            <file>file:/C:/Project_BDCLPM/src/java/Controller/tableServlet.java</file>
-            <file>file:/C:/Project_BDCLPM/web/CSS/checkout.css</file>
-            <file>file:/C:/Project_BDCLPM/src/java/Commons/Commons.java</file>
-            <file>file:/C:/Project_BDCLPM/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Project_BDCLPM/src/java/Controller/homeServlet.java</file>
-            <file>file:/C:/Project_BDCLPM/src/java/Connection/JDBCConnection.java</file>
-            <file>file:/C:/Project_BDCLPM/src/java/Models/Info.java</file>
-            <file>file:/C:/Project_BDCLPM/src/java/Controller/userServlet.java</file>
-            <file>file:/C:/Project_BDCLPM/src/java/DAO/UserDAO.java</file>
-            <file>file:/C:/Project_BDCLPM/nbproject/build-impl.xml</file>
-            <file>file:/C:/Project_BDCLPM/web/JSP/caculation.jsp</file>
-            <file>file:/C:/Project_BDCLPM/src/java/Controller/successServlet.java</file>
-            <file>file:/C:/Project_BDCLPM/src/java/Controller/firstPageServlet.java</file>
-            <file>file:/C:/Project_BDCLPM/src/java/Controller/table3Servlet.java</file>
-            <file>file:/C:/Project_BDCLPM/web/JSP/header.jsp</file>
-            <file>file:/C:/Project_BDCLPM/src/conf/MANIFEST.MF</file>
-            <file>file:/C:/Project_BDCLPM/web/CSS/menu.css</file>
-            <file>file:/C:/Project_BDCLPM/web/JSP/menu.jsp</file>
-            <file>file:/C:/Project_BDCLPM/web/CSS/header.css</file>
-            <file>file:/C:/Project_BDCLPM/web/JSP/home.jsp</file>
-            <file>file:/C:/Project_BDCLPM/src/java/Models/User.java</file>
-            <file>file:/C:/Project_BDCLPM/src/java/Controller/infoServlet.java</file>
-            <file>file:/C:/Project_BDCLPM/src/java/Controller/table2Servlet.java</file>
-            <file>file:/C:/Project_BDCLPM/web/JSP/success.jsp</file>
-            <file>file:/C:/Project_BDCLPM/src/java/Controller/caculationServlet.java</file>
-            <file>file:/C:/Project_BDCLPM/web/META-INF/context.xml</file>
-            <file>file:/C:/Project_BDCLPM/web/index.html</file>
-            <file>file:/C:/Project_BDCLPM/src/java/Encrypted/EncryptedPassword.java</file>
-            <file>file:/C:/Project_BDCLPM/src/java/DAO/InfoDAO.java</file>
+            <file>file:/E:/DBCLPM/project/DBCLPM/src/java/DAO/UserFamilyDAO.java</file>
+            <file>file:/E:/DBCLPM/project/DBCLPM/web/JSP/table.jsp</file>
+            <file>file:/E:/DBCLPM/project/DBCLPM/src/java/Controller/tableServlet.java</file>
+            <file>file:/E:/DBCLPM/project/DBCLPM/src/java/Controller/table2Servlet.java</file>
+            <file>file:/E:/DBCLPM/project/DBCLPM/src/java/Controller/infoServlet.java</file>
+            <file>file:/E:/DBCLPM/project/DBCLPM/src/java/DAO/InfoDAO.java</file>
+            <file>file:/E:/DBCLPM/project/DBCLPM/web/JSP/caculation.jsp</file>
+            <file>file:/E:/DBCLPM/project/DBCLPM/src/java/Models/Info.java</file>
         </group>
     </open-files>
 </project-private>

@@ -48,6 +48,7 @@ public class Info {
         this.soCMND = soCMND;
         this.ngaySinh = ngaySinh;
         this.danToc = danToc;
+        this.gioiTinh=gioiTinh;
         
     }
 

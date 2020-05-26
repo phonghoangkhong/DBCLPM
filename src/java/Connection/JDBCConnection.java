@@ -12,15 +12,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
  *
- * @author Le Trong Nghia
- * Date 20/02/2020
+ * @author SA Nice
  */
 public class JDBCConnection {
-    /**
-     * 
-     * @return  Connetion
-     * Content: connect database
-     */
+    
     public static Connection getConnection(){
         final String url = "jdbc:sqlserver://localhost:1433; databaseName=Project_DBCLPM" ;
         final String username = "sa";
@@ -37,5 +32,13 @@ public class JDBCConnection {
         return null;
     }
     
-
+    public static void main(String[] args) {
+        Connection con = getConnection();
+        if(con != null){
+            System.out.println("Connection Success");
+        }
+        else{
+            System.out.println("Connection False");
+        }
+    }
 }

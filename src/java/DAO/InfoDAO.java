@@ -15,16 +15,9 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Le Trong Nghia
- * Date 20/02/2020
+ * @author SA Nice
  */
 public class InfoDAO {
-    /**
-     * 
-     * @param info
-     * @return boolean
-     * 
-     */
     public boolean add(Info info){
         Connection con = JDBCConnection.getConnection();
         String query = "INSERT INTO [Project_DBCLPM].[dbo].[Info] (username, ten, soDT, diaChi, soCMND, ngaySinh, danToc, gioiTinh, maTinh, mucLuong, hinhThuc, trangThai)" + 
@@ -44,21 +37,16 @@ public class InfoDAO {
             ps.setInt(10, info.getMucLuong());
             ps.setBoolean(11, info.getHinhThuc());
             ps.setBoolean(12, info.getTrangThai());
-           int a2= ps.executeUpdate();
+            ps.executeUpdate();
             con.close();
-            return a2==1;
+            return true;
         }
         catch(SQLException ex){
                 Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
-  /**
-   * 
-   * @param username
-   * @return info
-   * get info by username
-   */
+    
     public Info get(String username){
         Connection con = JDBCConnection.getConnection();
         String query = "SELECT * FROM [Project_DBCLPM].[dbo].[Info] WHERE username='" + username + "'"; 
@@ -90,15 +78,7 @@ public class InfoDAO {
         }
         return null;
     }
-    /**
-     * 
-     * @param info
-     * @return boolean
-     * update info
-     * Edit by: Khong Hoang Phong
-     * Edit:fix bug khong update duoc bang cach set username
-     * Date: 14/03/2020
-     */
+    
     public boolean update(Info info){
         Connection con = JDBCConnection.getConnection();
         String query = "UPDATE [Project_DBCLPM].[dbo].[Info] SET ten = ?, soDT = ?, diaChi = ?, soCMND = ?, ngaySinh = ?, danToc = ?, gioiTinh = ?"
@@ -128,11 +108,7 @@ public class InfoDAO {
         }
         return false;
     }
-   /**
-    * 
-    * @param username 
-    * delete user
-    */
+    
     public void delete(String username){
         Connection con = JDBCConnection.getConnection();
         String query = "DELETE FROM [Project_DBCLPM].[dbo].[Info] WHERE username = ?";

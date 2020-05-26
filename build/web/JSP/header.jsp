@@ -1,12 +1,8 @@
 <%-- 
     Document   : header
-    Created on : Feb 20, 2020, 9:39:11 PM
-    Author     : Le Trong Nghia
-    Edit :Khong Hoang Phong
-    Date: Mar 14,2020
-    Content: Chỉnh sửa giao diện check out
+    Created on : Feb 27, 2020, 10:59:54 AM
+    Author     : SA Nice
 --%>
-
 
 <%@page import="Models.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

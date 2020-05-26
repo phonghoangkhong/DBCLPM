@@ -17,22 +17,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 /**
  *
- * @author Le Trong Nghia
- * Date 20/02/2020
- * Xu ly thong tin khai bao
- * Edit by: Khong Hoang Phong
- * Date: 14/03/2020
- * Sua su kien nop voi ho gia dinh
+ * @author SA Nice
  */
-
 public class infoServlet extends HttpServlet{
     UserDAO userDAO = new UserDAO();
     InfoDAO infoDAO = new InfoDAO();
     UserFamilyDAO userFamily=new UserFamilyDAO();
     void checkValidate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        System.out.println("check");
         HttpSession session = req.getSession();
         String ten = Commons.fixName(req.getParameter("ten"));
         String soDT = req.getParameter("soDT").trim();
@@ -75,19 +69,14 @@ public class infoServlet extends HttpServlet{
             resp.sendRedirect("home"); 
         }
     }
-    void fail(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
-       HttpSession session = req.getSession();
-                   session.setAttribute("errot", "fail lam");
-                   resp.sendRedirect("home");
-                
-    }
     
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String typeSubmit = req.getParameter("submit");
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
-       
+        resp.setContentType("text/html;charset=UTF-8");
+        req.setCharacterEncoding("UTF-8");
         String username = user.getUsername();
         System.out.println(req.getParameter("ten"));
         String ten = Commons.fixName(req.getParameter("ten"));
@@ -100,38 +89,39 @@ public class infoServlet extends HttpServlet{
         String maTinh = req.getParameter("maTinh").trim();
         int mucLuong = Integer.parseInt(req.getParameter("mucLuong"));
         boolean hinhThuc = (req.getParameter("hinhThuc").equals("0"));
-                  
+                    
         if(typeSubmit.equals("add")){
-           
             session.setAttribute("error", null);
             checkValidate(req, resp);
             if(session.getAttribute("error") == null){
                 Info info = new Info(username, ten, soDT, diaChi, soCMND, ngaySinh, danToc, gioiTinh, maTinh,mucLuong, hinhThuc, false);
                 boolean check = infoDAO.add(info);
-              
-              
-                
+                boolean check2 = false;
+                boolean check3= userFamily.add(info);
                 user.setTrangThai(true);
-              
-                if(check == true ){
+                if(check == true){
+                    check2 = userDAO.edit(user);
+                    if(check2 == false){
+                        infoDAO.delete(username);
+                    }
+                }
+                if(check == true && check2 == true&&check3==true){
                     if(hinhThuc==true)
                     {
-                        
                         session.setAttribute("info", info);
                          resp.sendRedirect("table");
-                         }
-                    else{
+                          
+                    }else{
                     session.setAttribute("info", info);
                     resp.sendRedirect("caculation");
                 }
                 }
                 else{
-                   fail(req, resp);
+                    session.setAttribute("error", "Cập nhật thông tin thất bại");
+                    resp.sendRedirect("home");
                 }
-                }
-
             }
-        
+        }
         else if(typeSubmit.equals("update")){
             session.setAttribute("error", null);
             checkValidate(req, resp);
@@ -140,7 +130,7 @@ public class infoServlet extends HttpServlet{
                 boolean check = infoDAO.update(info);
                 boolean check3= userFamily.update(info);
                 if(check3==false) userFamily.add(info);
-                if(check == true){
+                if(check == true && check3==true){
                     session.setAttribute("info", info);
                     if(hinhThuc==true){
                          resp.sendRedirect("table");
@@ -151,6 +141,7 @@ public class infoServlet extends HttpServlet{
                     }
                 }
                 else{
+                    
                     session.setAttribute("error", "Cập nhật thông tin thất bại");
                     resp.sendRedirect("home");
                 }

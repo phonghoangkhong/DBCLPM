@@ -15,18 +15,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
- * @author Le Trong Nghia
- * Date 20/02/2020
+ * @author SA Nice
  */
 public class UserDAO {
-    /**
-     * 
-     * @param user
-     * @return boolean
-     * check dang ky 
-     */
     public boolean register(User user){
         if(checkUsername(user.getUsername())){
             Connection con = JDBCConnection.getConnection();
@@ -48,12 +42,7 @@ public class UserDAO {
         }
         return false;
     }
-    /**
-     * 
-     * @param username
-     *  @return boolean
-     * check Username
-     */
+    
     public boolean checkUsername(String username){
         Connection con = JDBCConnection.getConnection();
         String query = "SELECT * FROM [Project_DBCLPM].[dbo].[User] WHERE username = '" + username + "'";
@@ -73,13 +62,6 @@ public class UserDAO {
         }
         return false;
     }
-    /**
-     * 
-     * @param username
-     * @param password
-     * @return boolean
-     * check thong tin dang nhap
-     */
     
     public  User login(String username, String password){
         Connection con = JDBCConnection.getConnection();
@@ -109,12 +91,7 @@ public class UserDAO {
         }
         return null;
     }
-    /**
-     * 
-     * @param user
-     * @return  boolean
-     * 
-     */
+    
     public boolean edit(User user){
         Connection con = JDBCConnection.getConnection();
         String query = "UPDATE [Project_DBCLPM].[dbo].[User] SET password = ?, trangThai = ? WHERE username = ?";

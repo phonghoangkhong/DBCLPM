@@ -18,9 +18,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Le Trong Nghia
- * Date 20/02/2020
- * Bat su kien thanh toan thanh cong
+ * @author SA Nice
  */
 public class successServlet extends HttpServlet{
     InfoDAO infoDAO = new InfoDAO();

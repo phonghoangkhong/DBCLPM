@@ -17,11 +17,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 /**
  *
- * @author Khong Hoang Phong
- * Date 14/03/2020
- * Them Thanh vien gia dinh vao bang
+ * @author User
  */
 public class table2Servlet  extends HttpServlet{
      InfoDAO info=new InfoDAO(); 
@@ -65,14 +64,17 @@ public class table2Servlet  extends HttpServlet{
        String soCMND = req.getParameter("soCMND").trim();
         String ngaySinh = req.getParameter("ngaySinh").trim();
         String danToc = req.getParameter("danToc").trim();
+        String gioiTinh2=req.getParameter("gioiTinh").trim();
+            System.out.println(gioiTinh2);
         boolean gioiTinh = (req.getParameter("gioiTinh").equals("0"));
-       
+            System.out.println(gioiTinh);
             session.setAttribute("error", null);
           
          
             checkValidate(req, resp);
             if(session.getAttribute("error") == null){
                 Info info = new Info(username, ten, soCMND, ngaySinh, danToc, gioiTinh);
+                System.out.println(info);
                 boolean check = userFamilyDAO.add(info);
                 if(check == true){
                   

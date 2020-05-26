@@ -1,11 +1,7 @@
 <%-- 
     Document   : caculation
-    Created on : Feb 20, 2020, 9:39:11 PM
-    Author     : Le Trong Nghia
-    Content: Giao diện tính bảo hiểm y tế và xử lý
-    Edit :Khong Hoang Phong
-    Date: Mar 14,2020
-    Content: Chỉnh sửa giao diện và xử lý khi nộp theo hộ gia đình
+    Created on : Mar 2, 2020, 10:19:40 PM
+    Author     : SA Nice
 --%>
 
 <%@page import="java.util.ArrayList"%>

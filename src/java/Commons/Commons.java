@@ -1,18 +1,15 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Commons;
 
 /**
  *
- * @author Le Trong Nghia
- * Date 20/02/2020
+ * @author SA Nice
  */
 public class Commons {
-    /**
-     * 
-     * @param user_name
-     * @return boolean
-     * check username
-     */
     public static boolean checkUsername(String user_name){
         byte[] user_name_custom = user_name.getBytes();
         for(int i = 0; i < user_name_custom.length; i++){
@@ -29,12 +26,6 @@ public class Commons {
         }
         return true;
     }
-    /**
-     * 
-     * @param password
-     * @return boolean
-     * check password
-     */
     
     public static boolean checkPassword(String password)
     {
@@ -48,12 +39,7 @@ public class Commons {
             return true;
         } 
     }
-    /**
-     * 
-     * @param name
-     * @return String
-     * chuẩn hóa tên
-     */
+    
     public static String fixName(String name)
     {
         name = name.trim();
@@ -73,12 +59,6 @@ public class Commons {
         }
         return nameFinal.trim();
     }   
-    /**
-     * 
-     * @param soDT
-     * @return boolean
-     * check soDT
-     */
     
     public static boolean checkSoDT(String soDT){
         if(soDT.length() != 10) return false;
@@ -90,16 +70,6 @@ public class Commons {
             return false;
         }
     }
-    /**
-     * 
-     * @param soCMND
-     * @return boolean
-     * check soCMND
-     *  Edit by: Khong Hoang PHong
-     *  Date: 12/03/2020
-     *  Content: Fix bug CMND khong nhan so 12 chu so 
-     *  bang cach doi int --> unsigner long
-     */
     
     public static boolean checkSoCMND(String soCMND){
         if(soCMND.length() != 9 &&  soCMND.length() != 12) return false;
@@ -111,12 +81,7 @@ public class Commons {
             return false;
         }
     }
-    /**
-     * 
-     * @param so
-     * @return boolean
-     * check 
-     */
+    
     public static boolean checkSo(String so){
         try{
             int x = Integer.parseInt(so);
